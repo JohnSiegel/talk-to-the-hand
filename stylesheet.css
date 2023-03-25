@@ -1,0 +1,33 @@
+*
+{
+    margin:0;
+    padding:0;
+}
+.container
+{
+    display:flex;
+    justify-content: center;
+    padding-top:15%;
+    padding-bottom:40%;
+    margin-bottom:40%;
+}
+.logo
+{
+    
+}
+.background
+{
+    background-color: black;
+    /*background:linear-gradient(0deg, rgba(255,255,255,1) 35%, rgba(0,0,0,1) 50%);*/
+}
+@keyframes gradient
+{
+    from {background-color: black;}
+    to {background-color: white;}
+}
+
+@keyframes reverseGradient
+{
+    from {background-color: white;}
+    to {background-color: black;}
+}
