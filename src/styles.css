@@ -51,11 +51,6 @@ body {
 }
 
 .blob {
-  top: 0px;
-  display: inline-block;
-  max-width: 600px;
-  padding: 0;
-  padding: 80px;
   color: #a0a0a0;
   line-height: 1.6em;
   font-size: 15px;

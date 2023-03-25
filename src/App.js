@@ -5,6 +5,7 @@ import Overlay from "./Overlay";
 import Model from "./Model";
 
 function App() {
+  const [textToAslScript, setTextToAslScript] = useState(null);
   const [pyodide, setPyodide] = useState(null);
   const [addedScript, setAddedScript] = useState(false);
   const overlay = useRef();
@@ -28,7 +29,16 @@ function App() {
           setPyodide(py);
         });
     }
-  }, [addedScript, setAddedScript, pyodide]);
+  }, [addedScript, setAddedScript, pyodide, setPyodide]);
+  useEffect(() => {
+    if (textToAslScript == null) {
+      fetch("/scripts/text_to_asl.py")
+        .then((response) => response.text())
+        .then((text) => {
+          setTextToAslScript(text);
+        });
+    }
+  }, [textToAslScript, setTextToAslScript]);
   return (
     <>
       <Canvas
@@ -43,7 +53,7 @@ function App() {
       >
         <ambientLight intensity={1} />
         <Suspense fallback={null}>
-          <Model scroll={scroll} pyodide={pyodide} />
+          <Model scroll={scroll} />
           <Environment preset="city" />
         </Suspense>
       </Canvas>
@@ -52,6 +62,7 @@ function App() {
         caption={caption}
         scroll={scroll}
         pyodide={pyodide}
+        textToAslScript={textToAslScript}
       />
     </>
   );
