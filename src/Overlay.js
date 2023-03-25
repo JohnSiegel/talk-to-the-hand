@@ -10,40 +10,27 @@ const Overlay = forwardRef(({ caption, scroll }, ref) => (
     }}
     className="scroll"
   >
-    <div style={{ height: "100vh" }}>
-      <div className="blob">
-        <h1>lorem ipsum</h1>
-        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
-      </div>
+    <div class="logo">
+      <img src="placeholder_logo.png" alt="" height="300" width="300" />
     </div>
-    <div style={{ height: "100vh" }}>
-      <div className="blob">
-        <h1>lorem ipsum</h1>
-        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+    <div class="container">
+      <div class="item">
+        <div class="icon_images">
+          <img id="t2asl_image" alt="" src="T2ASL_Placeholder.png" />
+        </div>
+        <div class="box_title">Text to ASL</div>
       </div>
-    </div>
-    <div style={{ height: "100vh" }}>
-      <div className="blob">
-        <h1>lorem ipsum</h1>
-        lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+      <div class="item">
+        <div class="icon_images">
+          <img id="s2t_image" alt="" src="Speech2ASL_Placehoder.png" />
+        </div>
+        <div class="box_title">Text to ASL</div>
+      </div>
+      <div class="item">
+        <div class="icon_images">
+          <img id="live_image" alt="" src="LiveSTT_Placehoder.jpg" />
+        </div>
+        <div class="box_title">Text to ASL</div>
       </div>
     </div>
     <span className="caption" ref={caption}>
