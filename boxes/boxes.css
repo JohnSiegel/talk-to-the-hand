@@ -78,7 +78,9 @@
     width:50%;
 }
 
-#list{
+#list1,
+#list2,
+#list3 {
     padding: 0;
     margin: 0;
     list-style-type: none;
