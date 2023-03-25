@@ -3,7 +3,8 @@
     margin:0;
     padding:0;
 }
-.container
+.gradient
+
 {
     display:flex;
     justify-content: center;
@@ -18,7 +19,7 @@
 .background
 {
     background-color: black;
-    /*background:linear-gradient(0deg, rgba(255,255,255,1) 35%, rgba(0,0,0,1) 50%);*/
+    background:linear-gradient(0deg, rgba(255,255,255,1) 35%, rgba(0,0,0,1) 50%);
 }
 @keyframes gradient
 {
@@ -30,4 +31,53 @@
 {
     from {background-color: white;}
     to {background-color: black;}
+}
+
+.container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    background-color: white;
+    height: 300px;
+    padding-bottom: 10%;
+}
+
+.item{
+    background-color: grey;
+    border-radius: 10%;
+    min-width: 40px;
+    max-width: 300px;
+}
+
+.icon_images{
+    width: 180px;
+    padding-right: 58px;
+    padding-top: 25px;
+    padding-left: 20px;
+    padding-bottom: 12px;
+}
+
+.box_title{
+    text-align: center;
+    font-size: 20px;
+}
+
+.box_images{
+        width: 217px;
+    height: 200px;
+}
+#t2asl_image{
+    width: 217px;
+    height: 200px;
+}
+
+#s2t_image{
+    width: 217px;
+    height: 200px;
+}
+
+#live_image{
+    width: 217px;
+    height: 200px;
 }
