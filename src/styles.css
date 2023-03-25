@@ -2,6 +2,8 @@
 
 * {
   box-sizing: border-box;
+  margin:0;
+  padding:0;
 }
 
 html,
@@ -14,6 +16,7 @@ body,
   padding: 0;
   user-select: none;
   overflow: hidden;
+  /*background-color: black;*/
 }
 
 #root {
@@ -25,6 +28,7 @@ body,
   top: 0;
   left: 0;
   overflow-y: auto;
+  
 }
 
 body {
@@ -105,4 +109,89 @@ body {
   .blob > h1 {
     font-size: 3em;
   }
+}
+@font-face
+{
+    font-family:Alfa;
+    src:url(AlfaSlabOne-Regular.ttf);
+    font-weight:bold;
+}
+.logo
+{
+    width:60%;
+    height:50%;
+    padding-left:35%;
+    padding-bottom: 35px;
+}
+.gradient
+{
+    display:flex;
+    justify-content: center;
+    padding-top:5%;
+    padding-bottom:30%;
+    margin-bottom:30%;
+}
+.background
+{
+    background-color: black;
+    background:linear-gradient(0deg, rgba(255,255,255,1) 35%, rgba(0,0,0,1) 50%);
+}
+@keyframes gradient
+{
+    from {background-color: black;}
+    to {background-color: white;}
+}
+
+@keyframes reverseGradient
+{
+    from {background-color: white;}
+    to {background-color: black;}
+}
+
+.container {
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    background-color: black;
+    height: 300px;
+    margin-bottom: 200px;
+    align-items:flex-start;
+}
+
+.box_images{
+    width: 300px;
+    height: 320px;
+    border-radius: 20px;
+}   
+
+.item{
+    background-color: white;
+    border-radius: 10%;
+    min-width: 40px;
+    max-width: 600px;
+}
+
+.icon_images{
+    padding-right: 25px;
+    padding-top: 25px;
+    padding-left: 25px;
+    padding-bottom: 10px;
+}
+
+.box_title{
+    text-align: center;
+    font-size: 22px;
+    font-family:Alfa;
+    color: black;
+    padding-bottom:10px;
+}
+
+h1
+{
+    text-align: center;
+    padding-bottom:10%;
+    font-size:100px;
+    font-family:Alfa;
+    color:white;
 }
