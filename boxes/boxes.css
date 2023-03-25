@@ -4,7 +4,13 @@
     flex-wrap: wrap;
     justify-content:space-evenly;
     background-color: aqua;
-    height: 300px;
+    height: auto;
+    align-items: flex-start;
+}
+
+.box_images{
+    width: 217px;
+    height: 200px;
 }
 
 .item{
@@ -12,6 +18,8 @@
     border-radius: 10%;
     min-width: 40px;
     max-width: 300px;
+    display:block;
+    position: relative;
 }
 
 .icon_images{
@@ -25,23 +33,62 @@
 .box_title{
     text-align: center;
     font-size: 20px;
+    padding-bottom: 20px;
 }
 
-.box_images{
-        width: 217px;
-    height: 200px;
-}
-#t2asl_image{
-    width: 217px;
-    height: 200px;
+.discription1,
+.discription2,
+.discription3{
+    display:none;
+    list-style-type: none;
 }
 
-#s2t_image{
-    width: 217px;
-    height: 200px;
+#box1:hover > .discription1{
+    display:block;
+    color:aliceblue;
+}
+#box2:hover > .discription2{
+    display:block;
+    color:aliceblue;
+}
+#box3:hover > .discription3{
+    display:block;
+    color:aliceblue;
 }
 
-#live_image{
-    width: 217px;
-    height: 200px;
+#box1:hover > .box_title{
+    display:none;
+    color:aliceblue;
+}
+#box2:hover > .box_title{
+    display:none;
+    color:aliceblue;
+}
+#box3:hover > .box_title{
+    display:none;
+    color:aliceblue;
+}
+
+#tio_button1,
+#tio_button2,
+#tio_button3 {
+    background-color: burlywood;
+    border-radius: 10%;
+    text-align: center;
+    width:50%;
+}
+
+#list{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.checkmark{
+    padding-left: 40px;
+    background-image: url('check.jpg');
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 20px;
+    margin-bottom: 10px;
 }
