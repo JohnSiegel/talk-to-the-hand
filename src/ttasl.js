@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Text to ASL</h1>
+      <h1>Text2ASL</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="text-input">
           Enter text (up to 500 words):
