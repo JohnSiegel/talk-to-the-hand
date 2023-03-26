@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const TTASL = ({ currentFeatureState }) => {
+const SEXP = ({ currentFeatureState }) => {
   const [userInput, setUserInput] = useState("");
 
   const handleInputChange = (event) => {
@@ -13,8 +13,6 @@ const TTASL = ({ currentFeatureState }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Call the text to ASL function with userInput
     console.log("User Input:", userInput);
   };
 
@@ -40,4 +38,4 @@ const TTASL = ({ currentFeatureState }) => {
   );
 };
 
-export default TTASL;
+export default SEXP;

@@ -1,5 +1,5 @@
-import React, { forwardRef, useEffect, useState } from "react"
-import'./App'
+import React, { forwardRef, useEffect, useState } from "react";
+import "./App";
 
 const SCROLL_THRESHOLD_START = 0.25;
 const SCROLL_THRESHOLD_MIDDLE = 0.35;
@@ -36,8 +36,18 @@ const MAX_DESCRIPTION_HEIGHT = 600;
 const MIN_DESCRIPTION_HEIGHT = 420;
 
 const Overlay = forwardRef(
-  ({ caption, scroll, backgroundColor, setBackgroundColor }, ref) => {
-    const [userInput, setUserInput] = useState('');
+  (
+    {
+      caption,
+      scroll,
+      backgroundColor,
+      setBackgroundColor,
+      currentFeatureState,
+    },
+    ref
+  ) => {
+    const [userInput, setUserInput] = useState("");
+    const [currentFeature, setCurrentFeature] = currentFeatureState;
 
     const handleInputChange = (event) => {
       const inputText = event.target.value;
@@ -46,11 +56,11 @@ const Overlay = forwardRef(
         setUserInput(inputText);
       }
     };
-  
+
     const handleSubmit = (event) => {
       event.preventDefault();
       // Call the text to ASL function with userInput
-      console.log('User Input:', userInput);
+      console.log("User Input:", userInput);
     };
     const [animateHover1, setAnimateHover1] = useState(0);
     const [animateHover2, setAnimateHover2] = useState(0);
@@ -62,17 +72,24 @@ const Overlay = forwardRef(
     const [animateBoxHover2, setAnimateBoxHover2] = useState(0);
     const [animateBoxHover3, setAnimateBoxHover3] = useState(0);
 
-    const handleButtonClick = (buttonId) => {console.log(buttonId)
-      /*if (buttonId === "tio_button1"){
-        featureSubSection1.current.scrollIntoView({behavior:'smooth'});
+    const handleButtonClick = (buttonId) => {
+      if (buttonId === "tio_button1") {
+        setCurrentFeature("tts");
+      } else if (buttonId === "tio_button2") {
+        setCurrentFeature("vts");
+      } else if (buttonId === "tio_button3") {
+        setCurrentFeature("sexp");
       }
-      else if (buttonId === "tio_button2"){
-        featureSubSection2.current.scrollIntoView({behavior:'smooth'});
-      }
-      else if (buttonId === "tio_button3"){
-        featureSubSection3.current.scrollIntoView({behavior:'smooth'});
-      }*/
     };
+
+    useEffect(() => {
+      switch (currentFeature) {
+        case "tts":
+
+        case "vts":
+        case "sexp":
+      }
+    }, [currentFeature, scroll]);
 
     const [hoveringButton1, setHoveringButton1] = useState(false);
     const [hoveringButton2, setHoveringButton2] = useState(false);
@@ -82,12 +99,12 @@ const Overlay = forwardRef(
         const timeout = setTimeout(() => {
           setAnimateHover1(Math.min(1, animateHover1 + ANIMATION_RATE));
           setAnimateTextHover1(
-            Math.min(1, animateTextHover1 + ANIMATION_RATE / 6)
+            Math.min(1, animateTextHover1 + ANIMATION_RATE / 30)
           );
           setAnimateBoxHover1(
             Math.min(1, animateBoxHover1 + ANIMATION_RATE / 2)
           );
-        }, 50);
+        }, 1);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -96,7 +113,7 @@ const Overlay = forwardRef(
           setAnimateBoxHover1(
             Math.max(0, animateBoxHover1 - ANIMATION_RATE / 2)
           );
-        }, 50);
+        }, 1);
         return () => clearTimeout(timeout);
       }
     }, [
@@ -113,12 +130,12 @@ const Overlay = forwardRef(
         const timeout = setTimeout(() => {
           setAnimateHover2(Math.min(1, animateHover2 + ANIMATION_RATE));
           setAnimateTextHover2(
-            Math.min(1, animateTextHover2 + ANIMATION_RATE / 6)
+            Math.min(1, animateTextHover2 + ANIMATION_RATE / 30)
           );
           setAnimateBoxHover2(
             Math.min(1, animateBoxHover2 + ANIMATION_RATE / 2)
           );
-        }, 50);
+        }, 1);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -127,7 +144,7 @@ const Overlay = forwardRef(
           setAnimateBoxHover2(
             Math.max(0, animateBoxHover2 - ANIMATION_RATE / 2)
           );
-        }, 50);
+        }, 1);
         return () => clearTimeout(timeout);
       }
     }, [
@@ -145,12 +162,12 @@ const Overlay = forwardRef(
         const timeout = setTimeout(() => {
           setAnimateHover3(Math.min(1, animateHover3 + ANIMATION_RATE));
           setAnimateTextHover3(
-            Math.min(1, animateTextHover3 + ANIMATION_RATE / 6)
+            Math.min(1, animateTextHover3 + ANIMATION_RATE / 30)
           );
           setAnimateBoxHover3(
             Math.min(1, animateBoxHover3 + ANIMATION_RATE / 2)
           );
-        }, 50);
+        }, 1);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
@@ -159,7 +176,7 @@ const Overlay = forwardRef(
           setAnimateBoxHover3(
             Math.max(0, animateBoxHover3 - ANIMATION_RATE / 2)
           );
-        }, 50);
+        }, 1);
         return () => clearTimeout(timeout);
       }
     }, [
@@ -237,11 +254,7 @@ const Overlay = forwardRef(
             }}
           >
             <div className="icon_images">
-              <img
-                className="box_images"
-                src="image-4.png"
-                alt=""
-              ></img>
+              <img className="box_images" src="image-4.png" alt=""></img>
             </div>
             <div className="box_title">Text2Sign</div>
             <div className="discription1" id="subtitle1">
@@ -254,9 +267,9 @@ const Overlay = forwardRef(
                   : notHoveringDescStyle),
                 textAlign: "center",
                 height: 90,
-                color:"white",
-                paddingLeft:"15px",
-                paddingRight:"15px"
+                color: "white",
+                paddingLeft: "15px",
+                paddingRight: "15px",
               }}
             >
               {description1.substring(
@@ -298,11 +311,7 @@ const Overlay = forwardRef(
             }}
           >
             <div className="icon_images">
-              <img
-                className="box_images"
-                src="image-3.png"
-                alt=""
-              ></img>
+              <img className="box_images" src="image-3.png" alt=""></img>
             </div>
             <div className="box_title">Voice2Sign</div>
             <div className="discription2" id="subtitle2">
@@ -315,9 +324,9 @@ const Overlay = forwardRef(
                   : notHoveringDescStyle),
                 textAlign: "center",
                 height: 90,
-                color:"white",
-                paddingLeft:"15px",
-                paddingRight:"15px"
+                color: "white",
+                paddingLeft: "15px",
+                paddingRight: "15px",
               }}
             >
               {description2.substring(
@@ -376,9 +385,9 @@ const Overlay = forwardRef(
                   : notHoveringDescStyle),
                 textAlign: "center",
                 height: 90,
-                color:"white",
-                paddingLeft:"15px",
-                paddingRight:"15px"
+                color: "white",
+                paddingLeft: "15px",
+                paddingRight: "15px",
               }}
             >
               {description3.substring(
@@ -402,22 +411,24 @@ const Overlay = forwardRef(
           </div>
         </div>
         <div className="App">
-      <h2 class="feature" >Text2Sign</h2>
-      <form class="form" onSubmit={handleSubmit}>
-        <label htmlFor="text-input">
-          <textarea 
-            id="text-input"
-            value={userInput}
-            placeholder="Type here. (500 word maximum)"
-            onChange={handleInputChange}
-            rows={10}
-            cols={50}
-          />
-        </label>
-        <br />
-        <button class="submit" type="submit">Submit</button>
-      </form>
-    </div>
+          <h2 class="feature">Text2Sign</h2>
+          <form class="form" onSubmit={handleSubmit}>
+            <label htmlFor="text-input">
+              <textarea
+                id="text-input"
+                value={userInput}
+                placeholder="Type here. (500 word maximum)"
+                onChange={handleInputChange}
+                rows={10}
+                cols={50}
+              />
+            </label>
+            <br />
+            <button class="submit" type="submit">
+              Submit
+            </button>
+          </form>
+        </div>
         <span className="caption" ref={caption}>
           Scroll down
         </span>

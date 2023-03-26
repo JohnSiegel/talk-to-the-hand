@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./styles.css";
 
-const TTASL = ({ currentFeatureState }) => {
+const STASL = ({ currentFeatureState }) => {
   const [userInput, setUserInput] = useState("");
 
   const handleInputChange = (event) => {
@@ -40,4 +40,4 @@ const TTASL = ({ currentFeatureState }) => {
   );
 };
 
-export default TTASL;
+export default STASL;

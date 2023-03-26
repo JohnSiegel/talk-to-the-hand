@@ -31,10 +31,16 @@ const VideoPlayer = ({ filenames, onDone }) => {
   }, [player, setAnimatingOpacity, animatingOpacity, animating]);
 
   useEffect(() => {
+    if (currentIndex !== 0) {
+      player.current.load();
+    }
+  }, [currentIndex, player]);
+
+  useEffect(() => {
     if (currentIndex === 0 && player.current != null) {
       player.current.subscribeToStateChange((state) => {
         if (
-          state.duration - state.currentTime < ANIM_DURATION / 400.0 &&
+          state.duration - state.currentTime < ANIM_DURATION / 500.0 &&
           !animating
         ) {
           setAnimating(true);
@@ -42,11 +48,13 @@ const VideoPlayer = ({ filenames, onDone }) => {
         if (state.ended) {
           if (currentIndex <= filenames.length - 1) {
             setCurrentIndex(currentIndex + 1);
-            player.current.load();
-            // const timeout = setTimeout(() => {
-            setAnimating(false);
-            // }, ANIM_DURATION);
-            // return () => clearTimeout(timeout);
+            player.current.subscribeToStateChange((state) => {
+              if (state.hasStarted) {
+                setTimeout(() => {
+                  setAnimating(false);
+                }, ANIM_DURATION);
+              }
+            });
           } else {
             onDone();
           }

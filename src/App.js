@@ -6,26 +6,31 @@ import Model from "./Model";
 import VideoPlayer from "./VideoPlayer";
 
 const LIGHT_COLOR = {
-  r: 44/255, g:0/255, b:63/255
+  r: 44 / 255,
+  g: 0 / 255,
+  b: 63 / 255,
 };
 
 const DARK_COLOR = {
-  r: 0, g: 0, b: 0,
-}
+  r: 0,
+  g: 0,
+  b: 0,
+};
 
 function App() {
   const overlay = useRef();
   const caption = useRef();
   const scroll = useRef(0);
+  const currentFeatureState = useState(null);
   const [backgroundColor, setBackgroundColor] = useState(0);
   console.log({
-          r: DARK_COLOR.r + (LIGHT_COLOR.r - DARK_COLOR.r) * backgroundColor,
-          g: DARK_COLOR.g + (LIGHT_COLOR.g - DARK_COLOR.g) * backgroundColor,
-          b: DARK_COLOR.b + (LIGHT_COLOR.b - DARK_COLOR.b) * backgroundColor
-  })
+    r: DARK_COLOR.r + (LIGHT_COLOR.r - DARK_COLOR.r) * backgroundColor,
+    g: DARK_COLOR.g + (LIGHT_COLOR.g - DARK_COLOR.g) * backgroundColor,
+    b: DARK_COLOR.b + (LIGHT_COLOR.b - DARK_COLOR.b) * backgroundColor,
+  });
   return (
     <>
-      {/* <Canvas
+      <Canvas
         shadows
         onCreated={(state) => state.events.connect(overlay.current)}
         raycaster={{
@@ -53,15 +58,12 @@ function App() {
         scroll={scroll}
         backgroundColor={backgroundColor}
         setBackgroundColor={setBackgroundColor}
-      /> */}
-      <VideoPlayer
-        filenames={[
-          "/movies/yes.mov",
-          "/movies/yes.mov",
-          "/movies/yes.mov",
-          "/movies/yes.mov",
-        ]}
+        currentFeatureState={currentFeatureState}
       />
+      {/* <VideoPlayer
+        onDone={(event) => {}}
+        filenames={["/movies/IMG_0518.mov", "/movies/yes.mov"]}
+      ></VideoPlayer> */}
     </>
   );
 }
