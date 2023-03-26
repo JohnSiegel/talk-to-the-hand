@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
+import VideoPlayer from "./VideoPlayer";
 import "./App";
 
 const SCROLL_THRESHOLD_START = 0.25;
@@ -85,7 +86,6 @@ const Overlay = forwardRef(
     useEffect(() => {
       switch (currentFeature) {
         case "tts":
-
         case "vts":
         case "sexp":
       }
@@ -195,8 +195,8 @@ const Overlay = forwardRef(
         onScroll={(e) => {
           scroll.current =
             e.target.scrollTop / (e.target.scrollHeight - window.innerHeight);
-          caption.current.innerText =
-            scroll.current < 0.05 ? "Scroll down" : "";
+          // caption.current.innerText =
+          //   scroll.current < 0.05 ? "Scroll down" : "";
           console.log(backgroundColor);
           if (scroll.current < SCROLL_THRESHOLD_START) {
             setBackgroundColor(0);
@@ -279,7 +279,7 @@ const Overlay = forwardRef(
                 Math.round(description1.length * animateTextHover1)
               )}
             </div>
-            <button
+            <button id="tio_button2" onclick="handleButtonClick('tio_button2')"
               style={{
                 fontSize: MAX_FONT_SIZE * animateHover1,
                 opacity: animateBoxHover1,
@@ -469,6 +469,15 @@ const Overlay = forwardRef(
         </div>
       </div>
 
+      <VideoPlayer
+        onDone={(event) => {}}
+        filenames={[
+          "/movies/IMG_0826.mov",
+          "/movies/IMG_0518.mov",
+          "/movies/yes.mov",
+        ]}
+      ></VideoPlayer>
+      
       <div class="container_text">
       <button class="record_button">
         <div class="wrap">

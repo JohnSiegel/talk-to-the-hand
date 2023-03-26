@@ -30,7 +30,7 @@ function App() {
   });
   return (
     <>
-      {/* <Canvas
+      <Canvas
         shadows
         onCreated={(state) => state.events.connect(overlay.current)}
         raycaster={{
@@ -59,15 +59,15 @@ function App() {
         backgroundColor={backgroundColor}
         setBackgroundColor={setBackgroundColor}
         currentFeatureState={currentFeatureState}
-      /> */}
-      <VideoPlayer
+      />
+      {/* <VideoPlayer
         onDone={(event) => {}}
         filenames={[
           "/movies/IMG_0826.mov",
           "/movies/IMG_0518.mov",
           "/movies/yes.mov",
         ]}
-      ></VideoPlayer>
+      ></VideoPlayer> */}
     </>
   );
 }
