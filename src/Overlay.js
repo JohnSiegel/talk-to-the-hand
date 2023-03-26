@@ -1,9 +1,11 @@
-import React, { forwardRef, useEffect, useState } from "react";
+import React, { forwardRef, useEffect, useState } from "react"
+import'./App'
 
 const SCROLL_THRESHOLD_START = 0.25;
 const SCROLL_THRESHOLD_MIDDLE = 0.35;
 const SCROLL_THRESHOLD_MIDDLE_END = 0.7;
 const SCROLL_THRESHOLD_END = 0.8;
+
 
 const hoveringDescriptionStyle = {
   display: "block",
@@ -36,6 +38,21 @@ const MIN_DESCRIPTION_HEIGHT = 400;
 
 const Overlay = forwardRef(
   ({ caption, scroll, backgroundColor, setBackgroundColor }, ref) => {
+    const [userInput, setUserInput] = useState('');
+
+    const handleInputChange = (event) => {
+      const inputText = event.target.value;
+      const words = inputText.split(/\s+/);
+      if (words.length <= 500) {
+        setUserInput(inputText);
+      }
+    };
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      // Call the text to ASL function with userInput
+      console.log('User Input:', userInput);
+    };
     const [animateHover1, setAnimateHover1] = useState(0);
     const [animateHover2, setAnimateHover2] = useState(0);
     const [animateHover3, setAnimateHover3] = useState(0);
@@ -47,7 +64,15 @@ const Overlay = forwardRef(
     const [animateBoxHover3, setAnimateBoxHover3] = useState(0);
 
     const handleButtonClick = (buttonId) => {
-      console.log(`${buttonId} clicked`);
+      /*if (buttonId === "tio_button1"){
+        featureSubSection1.current.scrollIntoView({behavior:'smooth'});
+      }
+      else if (buttonId === "tio_button2"){
+        featureSubSection2.current.scrollIntoView({behavior:'smooth'});
+      }
+      else if (buttonId === "tio_button3"){
+        featureSubSection3.current.scrollIntoView({behavior:'smooth'});
+      }*/
     };
 
     const [hoveringButton1, setHoveringButton1] = useState(false);
@@ -215,7 +240,7 @@ const Overlay = forwardRef(
             <div className="icon_images">
               <img
                 className="box_images"
-                src="T2ASL_Placeholder.png"
+                src="image-4.png"
                 alt=""
               ></img>
             </div>
@@ -228,8 +253,9 @@ const Overlay = forwardRef(
                 ...(hoveringButton1
                   ? hoveringDescriptionStyle
                   : notHoveringDescStyle),
-                textAlign: "left",
+                textAlign: "center",
                 height: 90,
+                color:"white",
               }}
             >
               {description1.substring(
@@ -273,7 +299,7 @@ const Overlay = forwardRef(
             <div className="icon_images">
               <img
                 className="box_images"
-                src="Speech2ASL_Placehoder.png"
+                src="image-3.png"
                 alt=""
               ></img>
             </div>
@@ -286,8 +312,9 @@ const Overlay = forwardRef(
                 ...(hoveringButton2
                   ? hoveringDescriptionStyle
                   : notHoveringDescStyle),
-                textAlign: "left",
+                textAlign: "center",
                 height: 90,
+                color:"white",
               }}
             >
               {description2.substring(
@@ -344,8 +371,9 @@ const Overlay = forwardRef(
                 ...(hoveringButton3
                   ? hoveringDescriptionStyle
                   : notHoveringDescStyle),
-                textAlign: "left",
+                textAlign: "center",
                 height: 90,
+                color:"white",
               }}
             >
               {description3.substring(
@@ -368,6 +396,23 @@ const Overlay = forwardRef(
             </button>
           </div>
         </div>
+        <div className="App">
+      <h2 class="feature">Text2ASL</h2>
+      <form class="form" onSubmit={handleSubmit}>
+        <label htmlFor="text-input">
+          <textarea
+            id="text-input"
+            value={userInput}
+            placeholder="Type here. (500 word maximum)"
+            onChange={handleInputChange}
+            rows={10}
+            cols={50}
+          />
+        </label> ss
+        <br />
+        <button class="submit" type="submit">Submit</button>
+      </form>
+    </div>
         <span className="caption" ref={caption}>
           Scroll down
         </span>

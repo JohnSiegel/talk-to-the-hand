@@ -134,7 +134,7 @@ body {
     justify-content:space-evenly;
     background-color: transparent;
     margin-top:100px;
-    margin-bottom: 2000px;
+    margin-bottom: 1000px;
     align-items:center;
     height: 650px;
     background-color: transparent;
@@ -147,7 +147,7 @@ body {
 }   
 
 .item{
-    background-color: white;
+    background-color: black;
     border-radius: 10%;
     display: block;
     position: relative;
@@ -167,7 +167,7 @@ body {
     text-align: center;
     font-size: 22px;
     font-family:Alfa;
-    color: black;
+    color: white;
     padding-bottom:10px;
 }
 
@@ -176,7 +176,7 @@ h1
     text-align: center;
     font-size:100px;
     font-family:Alfa;
-    color:white;
+    color:black;
 }
 
 .discription1,
@@ -186,6 +186,7 @@ h1
     list-style-type: none;
     margin:10px, 10px, 10px, 10px;
     overflow: hidden;
+    color:white;
 }
 
 #box1:hover,
@@ -199,37 +200,37 @@ h1
     padding-left:20px;
     padding-right:20px;
     max-height:500px;
-    color:black;
+    color:white;
 }
 #box2:hover > .discription2{
     display:block;
     padding-left:20px;
     padding-right:20px;
     max-height:500px;
-    color:black;
+    color:white;
 }
 #box3:hover > .discription3{
     display:block;
     padding-left:20px;
     padding-right:20px;
     max-height:500px;
-    color:black;
+    color:white;
 }
 
 #box1:hover > .box_title{
     display:none;
     transition: all 500ms;
-    color:black;
+    color:white;
 }
 #box2:hover > .box_title{
     display:none;
     transition: all 500ms;
-    color:black;
+    color:white;
 }
 #box3:hover > .box_title{
     display:none;
     transition: all 500ms;
-    color:black;
+    color:white;
 }
 
 #tio_button1:hover,
@@ -263,4 +264,31 @@ h1
   font-size: 22px;
   font-family: Alfa;
   transition: all 500ms;
+}
+
+.App{
+  padding-bottom:400px;
+}
+
+.feature{
+  text-align: center;
+  color:white;
+}
+
+.form{
+  padding-left:400px;
+}
+
+.submit{
+  margin-left:360px;
+  background-color: lightblue;
+    border-radius: 12px;
+    border-color:lightblue;
+    border-width:5px;
+    border-style:inset;
+    text-align:center;
+    width:10%;
+    height:30px;
+    font-family:Alfa;
+    margin-top:10px;
 }

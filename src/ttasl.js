@@ -20,7 +20,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>Text2ASL</h1>
+      <h2 class="feature">Text2ASL</h2>
       <form onSubmit={handleSubmit}>
         <label htmlFor="text-input">
           Enter text (up to 500 words):
@@ -31,7 +31,7 @@ const App = () => {
             rows={10}
             cols={50}
           />
-        </label>
+        </label> ss
         <br />
         <button type="submit">Submit</button>
       </form>
