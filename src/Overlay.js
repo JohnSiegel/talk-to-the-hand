@@ -227,7 +227,7 @@ const Overlay = forwardRef(
           }}
         >
           <div>
-            <img className="logo" src="cleanlogo2.png" alt=""></img>
+            <img className="logo" src="cleanlogo2.png" alt="" height=""></img>
           </div>
         </div>
         <div>
