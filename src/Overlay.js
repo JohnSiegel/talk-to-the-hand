@@ -1,4 +1,5 @@
 import React, { forwardRef, useEffect, useState } from "react";
+import VideoPlayer from "./VideoPlayer";
 import "./App";
 
 const SCROLL_THRESHOLD_START = 0.25;
@@ -85,7 +86,6 @@ const Overlay = forwardRef(
     useEffect(() => {
       switch (currentFeature) {
         case "tts":
-
         case "vts":
         case "sexp":
       }
@@ -195,8 +195,8 @@ const Overlay = forwardRef(
         onScroll={(e) => {
           scroll.current =
             e.target.scrollTop / (e.target.scrollHeight - window.innerHeight);
-          caption.current.innerText =
-            scroll.current < 0.05 ? "Scroll down" : "";
+          // caption.current.innerText =
+          //   scroll.current < 0.05 ? "Scroll down" : "";
           console.log(backgroundColor);
           if (scroll.current < SCROLL_THRESHOLD_START) {
             setBackgroundColor(0);
@@ -227,10 +227,12 @@ const Overlay = forwardRef(
           }}
         >
           <div>
-            <img className="logo" src="cleanlogo2.png" alt=""></img>
+            <img className="logo" src="cleanlogo2.png" alt="" height=""></img>
           </div>
         </div>
+        
         <div>
+      {/* features */}
           <h1>Features</h1>
         </div>
         <div className="container">
@@ -277,7 +279,7 @@ const Overlay = forwardRef(
                 Math.round(description1.length * animateTextHover1)
               )}
             </div>
-            <button
+            <button id="tio_button2" onclick="handleButtonClick('tio_button2')"
               style={{
                 fontSize: MAX_FONT_SIZE * animateHover1,
                 opacity: animateBoxHover1,
@@ -408,10 +410,10 @@ const Overlay = forwardRef(
           </div>
         </div>
         {/* Translate Text to Sign Language */}
-        <div class="container_text">
+        <div class="container_title">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> Translate Text to Sign Language</h3>
+            <h3 class="animate-charcter"id="TTSL_title"> Translate Text to Sign Language</h3>
           </div>
         </div>
       </div>
@@ -440,14 +442,42 @@ const Overlay = forwardRef(
           </form>
         </div>
   {/* Translate Audio to Sign Language */}
-        <div class="container_text">
+        {/* <div class="container_">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> Translate Audio to Sign Language</h3>
+            <h3 class="animate-charcter" style={{
+                marginLeft:"280px"
+              }}> Translate Audio to Sign Language</h3>
+          </div>
+        </div>
+      </div> */}
+
+       {/* <div class="container_text">
+      <button class="record_button">
+        <div class="wrap">
+          <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
+        </div>
+      </button>
+      </div>
+
+      {/* Translate Live to Sign Language */}
+      <div class="container_text">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Live Video to Sign Language</h3>
           </div>
         </div>
       </div>
 
+      <VideoPlayer
+        onDone={(event) => {}}
+        filenames={[
+          "/movies/IMG_0826.mov",
+          "/movies/IMG_0518.mov",
+          "/movies/yes.mov",
+        ]}
+      ></VideoPlayer>
+      
       <div class="container_text">
       <button class="record_button">
         <div class="wrap">
@@ -455,10 +485,11 @@ const Overlay = forwardRef(
         </div>
       </button>
       </div>
-        <span className="caption" ref={caption}>
-          Scroll down
-        </span>
+
+
+        
       </div>
+      
       
 
       
