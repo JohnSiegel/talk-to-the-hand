@@ -154,6 +154,9 @@ body {
     text-align: center;
     padding:0;
     transition: padding 500ms;
+    border-style:groove;
+    border-color:azure;
+    border-width:5px;
 }
 
 .icon_images{
@@ -168,7 +171,7 @@ body {
     font-size: 22px;
     font-family:Alfa;
     color: white;
-    padding-bottom:10px;
+    padding-bottom:15px;
 }
 
 h1
@@ -176,7 +179,7 @@ h1
     text-align: center;
     font-size:100px;
     font-family:Alfa;
-    color:black;
+    color:white;
 }
 
 .discription1,
@@ -197,22 +200,22 @@ h1
 
 #box1:hover > .discription1{
     display:block;
-    padding-left:20px;
-    padding-right:20px;
+    padding-left:35px;
+    padding-right:35px;
     max-height:500px;
     color:white;
 }
 #box2:hover > .discription2{
     display:block;
-    padding-left:20px;
-    padding-right:20px;
+    padding-left:35px;
+    padding-right:35px;
     max-height:500px;
     color:white;
 }
 #box3:hover > .discription3{
     display:block;
-    padding-left:20px;
-    padding-right:20px;
+    padding-left:35px;
+    padding-right:35px;
     max-height:500px;
     color:white;
 }
@@ -236,15 +239,15 @@ h1
 #tio_button1:hover,
 #tio_button2:hover,
 #tio_button3:hover{
-  background-color:skyblue;
+  background-color:rgb(90,30,111);
 }
 
 #tio_button1,
 #tio_button2,
 #tio_button3 {
-    background-color: lightblue;
+    background-color: rgb(100, 46, 131);;
     border-radius: 12px;
-    border-color:lightblue;
+    border-color:rgb(100, 46, 131);
     border-width:5px;
     border-style:inset;
     text-align:center;
@@ -271,8 +274,10 @@ h1
 }
 
 .feature{
-  text-align: center;
+  margin-left:45.5%;
   color:white;
+  font-family: Alfa;
+  padding-bottom:7px;
 }
 
 .form{
@@ -280,15 +285,19 @@ h1
 }
 
 .submit{
-  margin-left:360px;
-  background-color: lightblue;
+  margin-left: 21%;
+  background-color: rgb(100, 46, 131);;
     border-radius: 12px;
-    border-color:lightblue;
+    border-color:rgb(100, 46, 131);;
     border-width:5px;
     border-style:inset;
     text-align:center;
-    width:10%;
-    height:30px;
+    width:20%;
+    height:40px;
     font-family:Alfa;
     margin-top:10px;
+}
+
+.submit:hover{
+  background-color:rgb(90,30,111);
 }

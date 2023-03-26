@@ -6,7 +6,6 @@ const SCROLL_THRESHOLD_MIDDLE = 0.35;
 const SCROLL_THRESHOLD_MIDDLE_END = 0.7;
 const SCROLL_THRESHOLD_END = 0.8;
 
-
 const hoveringDescriptionStyle = {
   display: "block",
   color: "black",
@@ -190,7 +189,7 @@ const Overlay = forwardRef(
                 (SCROLL_THRESHOLD_MIDDLE - SCROLL_THRESHOLD_START)
             );
           } else if (scroll.current < SCROLL_THRESHOLD_MIDDLE_END) {
-            setBackgroundColor(255);
+            setBackgroundColor(1);
           } else if (scroll.current < SCROLL_THRESHOLD_END) {
             setBackgroundColor(
               (SCROLL_THRESHOLD_END - scroll.current) /
@@ -211,7 +210,7 @@ const Overlay = forwardRef(
           }}
         >
           <div>
-            <img className="logo" src="image.png" alt=""></img>
+            <img className="logo" src="cleanlogo2.png" alt=""></img>
           </div>
         </div>
         <div>
@@ -256,6 +255,8 @@ const Overlay = forwardRef(
                 textAlign: "center",
                 height: 90,
                 color:"white",
+                paddingLeft:"15px",
+                paddingRight:"15px"
               }}
             >
               {description1.substring(
@@ -315,6 +316,8 @@ const Overlay = forwardRef(
                 textAlign: "center",
                 height: 90,
                 color:"white",
+                paddingLeft:"15px",
+                paddingRight:"15px"
               }}
             >
               {description2.substring(
@@ -374,6 +377,8 @@ const Overlay = forwardRef(
                 textAlign: "center",
                 height: 90,
                 color:"white",
+                paddingLeft:"15px",
+                paddingRight:"15px"
               }}
             >
               {description3.substring(
@@ -397,10 +402,13 @@ const Overlay = forwardRef(
           </div>
         </div>
         <div className="App">
-      <h2 class="feature">Text2ASL</h2>
+      <h2 class="feature">Text2Sign</h2>
       <form class="form" onSubmit={handleSubmit}>
         <label htmlFor="text-input">
-          <textarea
+          <textarea 
+            style={{
+              marginLeft:"120px",
+            }}
             id="text-input"
             value={userInput}
             placeholder="Type here. (500 word maximum)"
@@ -408,7 +416,7 @@ const Overlay = forwardRef(
             rows={10}
             cols={50}
           />
-        </label> ss
+        </label>
         <br />
         <button class="submit" type="submit">Submit</button>
       </form>

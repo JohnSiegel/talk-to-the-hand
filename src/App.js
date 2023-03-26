@@ -4,11 +4,24 @@ import { Environment } from "@react-three/drei";
 import Overlay from "./Overlay";
 import Model from "./Model";
 
+const LIGHT_COLOR = {
+  r: 44/255, g:0/255, b:63/255
+};
+
+const DARK_COLOR = {
+  r: 0, g: 0, b: 0,
+}
+
 function App() {
   const overlay = useRef();
   const caption = useRef();
   const scroll = useRef(0);
   const [backgroundColor, setBackgroundColor] = useState(0);
+  console.log({
+          r: DARK_COLOR.r + (LIGHT_COLOR.r - DARK_COLOR.r) * backgroundColor,
+          g: DARK_COLOR.g + (LIGHT_COLOR.g - DARK_COLOR.g) * backgroundColor,
+          b: DARK_COLOR.b + (LIGHT_COLOR.b - DARK_COLOR.b) * backgroundColor
+  })
   return (
     <>
       <Canvas
@@ -23,9 +36,9 @@ function App() {
       >
         <color
           attach={"background"}
-          r={backgroundColor}
-          g={backgroundColor}
-          b={backgroundColor}
+          r={DARK_COLOR.r + (LIGHT_COLOR.r - DARK_COLOR.r) * backgroundColor}
+          g={DARK_COLOR.g + (LIGHT_COLOR.g - DARK_COLOR.g) * backgroundColor}
+          b={DARK_COLOR.b + (LIGHT_COLOR.b - DARK_COLOR.b) * backgroundColor}
         />
         <ambientLight intensity={1} />
         <Suspense fallback={null}>
