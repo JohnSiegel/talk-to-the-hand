@@ -33,7 +33,7 @@ const MAX_DESCRIPTION_WIDTH = 425;
 const MIN_DESCRIPTION_WIDTH = 350;
 
 const MAX_DESCRIPTION_HEIGHT = 600;
-const MIN_DESCRIPTION_HEIGHT = 400;
+const MIN_DESCRIPTION_HEIGHT = 420;
 
 const Overlay = forwardRef(
   ({ caption, scroll, backgroundColor, setBackgroundColor }, ref) => {

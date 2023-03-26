@@ -239,15 +239,15 @@ h1
 #tio_button1:hover,
 #tio_button2:hover,
 #tio_button3:hover{
-  background-color:rgb(90,30,111);
+  background-color:rgb(110,42,145);
 }
 
 #tio_button1,
 #tio_button2,
 #tio_button3 {
-    background-color: rgb(100, 46, 131);;
+    background-color: rgb(140, 60, 191);
     border-radius: 12px;
-    border-color:rgb(100, 46, 131);
+    border-color:rgb(140, 60, 191);
     border-width:5px;
     border-style:inset;
     text-align:center;
@@ -286,9 +286,9 @@ h1
 
 .submit{
   margin-left: 21%;
-  background-color: rgb(100, 46, 131);;
+  background-color: rgb(140, 60, 191);;
     border-radius: 12px;
-    border-color:rgb(100, 46, 131);;
+    border-color:rgb(140, 60, 191);;
     border-width:5px;
     border-style:inset;
     text-align:center;
@@ -299,5 +299,5 @@ h1
 }
 
 .submit:hover{
-  background-color:rgb(90,30,111);
+  background-color:rgb(110,42,145);
 }
