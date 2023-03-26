@@ -396,10 +396,10 @@ content: '';
 }
 
 .record_button:hover::after, .record_button:focus::after {
-  animation: none;
+
   display: none;
   position: absolute;
-  /* animation: ring 1.5s infinite; */
+  animation: ring 1.5s infinite;
 }
 
 @keyframes ring {
@@ -416,7 +416,7 @@ content: '';
 }
 
 /* text animaiton  */
-.container {
+.container_text {
   width: 80%;
   margin: 0 auto;
   padding: 20px;
@@ -466,7 +466,7 @@ content: '';
 }
 
 
-.container-2 { background: #4E598C; }
+.container-2 { background: rgb(110,42,145); }
 
 /*
  BUTTON STYLING

@@ -266,7 +266,7 @@ const Overlay = forwardRef(
                   ? hoveringDescriptionStyle
                   : notHoveringDescStyle),
                 textAlign: "center",
-                height: 90,
+                height: 105,
                 color: "white",
                 paddingLeft: "15px",
                 paddingRight: "15px",
@@ -279,16 +279,15 @@ const Overlay = forwardRef(
             </div>
             <button
               style={{
-                ...(hoveringButton1
-                  ? hoveringDescriptionStyle
-                  : notHoveringDescStyle),
                 fontSize: MAX_FONT_SIZE * animateHover1,
                 opacity: animateBoxHover1,
               }}
-              id="tio_button1"
-              onClick={() => handleButtonClick("tio_button1")}
-            >
-              Try It Out!
+             >
+              <div class="container-2">
+                <div class="btn btn-two">
+                  <span>Try it out!</span>
+                </div>
+              </div>
             </button>
           </div>
           <div
@@ -336,16 +335,15 @@ const Overlay = forwardRef(
             </div>
             <button
               style={{
-                ...(hoveringButton2
-                  ? hoveringDescriptionStyle
-                  : notHoveringDescStyle),
                 fontSize: MAX_FONT_SIZE * animateHover2,
                 opacity: animateBoxHover2,
               }}
-              id="tio_button2"
-              onClick={() => handleButtonClick("tio_button2")}
-            >
-              Try It Out!
+             >
+              <div class="container-2">
+                <div class="btn btn-two">
+                  <span>Try it out!</span>
+                </div>
+              </div>
             </button>
           </div>
           <div
@@ -384,7 +382,7 @@ const Overlay = forwardRef(
                   ? hoveringDescriptionStyle
                   : notHoveringDescStyle),
                 textAlign: "center",
-                height: 90,
+                height: 105,
                 color: "white",
                 paddingLeft: "15px",
                 paddingRight: "15px",
@@ -397,19 +395,27 @@ const Overlay = forwardRef(
             </div>
             <button
               style={{
-                ...(hoveringButton3
-                  ? hoveringDescriptionStyle
-                  : notHoveringDescStyle),
                 fontSize: MAX_FONT_SIZE * animateHover3,
                 opacity: animateBoxHover3,
               }}
-              id="tio_button3"
-              onClick={() => handleButtonClick("tio_button3")}
-            >
-              Try It Out!
+             >
+              <div class="container-2">
+                <div class="btn btn-two">
+                  <span>Try it out!</span>
+                </div>
+              </div>
             </button>
           </div>
         </div>
+        {/* Translate Text to Sign Language */}
+        <div class="container_text">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Translate Text to Sign Language</h3>
+          </div>
+        </div>
+      </div>
+
         <div className="App">
           <h2 class="feature">Text2Sign</h2>
           <form class="form" onSubmit={handleSubmit}>
@@ -424,29 +430,25 @@ const Overlay = forwardRef(
               />
             </label>
             <br />
-            <button class="submit" type="submit">
-              Submit
-            </button>
+            <button>
+          <div class="container-2">
+            <div class="btn btn-two">
+              <span>Submit</span>
+            </div>
+          </div>
+        </button>
           </form>
         </div>
-        <div class="container">
+  {/* Translate Audio to Sign Language */}
+        <div class="container_text">
         <div class="row">
           <div class="col-md-12 text-center">
             <h3 class="animate-charcter"> Translate Audio to Sign Language</h3>
           </div>
         </div>
       </div>
-      <button>
-        <div class="container-2">
-          <div class="btn btn-two">
-            <span>Click</span>
-          </div>
-        </div>
-      </button>
-      <div class="container">
-        <p>Click the button to start recording!</p>
-      </div>
-      <div class="container">
+
+      <div class="container_text">
       <button class="record_button">
         <div class="wrap">
           <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
