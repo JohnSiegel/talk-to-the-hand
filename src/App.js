@@ -3,7 +3,6 @@ import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import Overlay from "./Overlay";
 import Model from "./Model";
-import VideoPlayer from "./VideoPlayer";
 
 const LIGHT_COLOR = {
   r: 44 / 255,
@@ -60,14 +59,6 @@ function App() {
         setBackgroundColor={setBackgroundColor}
         currentFeatureState={currentFeatureState}
       />
-      {/* <VideoPlayer
-        onDone={(event) => {}}
-        filenames={[
-          "/movies/IMG_0826.mov",
-          "/movies/IMG_0518.mov",
-          "/movies/yes.mov",
-        ]}
-      ></VideoPlayer> */}
     </>
   );
 }

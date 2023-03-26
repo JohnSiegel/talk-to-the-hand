@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./styles.css";
+import { useNavigate } from "react-router-dom";
 
 const TTASL = ({ currentFeatureState }) => {
   const [userInput, setUserInput] = useState("");
+
+  const navigate = useNavigate();
 
   const handleInputChange = (event) => {
     const inputText = event.target.value;
@@ -13,9 +16,16 @@ const TTASL = ({ currentFeatureState }) => {
   };
 
   const handleSubmit = (event) => {
-    event.preventDefault();
-    // Call the text to ASL function with userInput
-    console.log("User Input:", userInput);
+    navigate("/player", {
+      state: {
+        words: userInput
+          .replaceAll(".", "")
+          .replaceAll("?", "")
+          .replaceAll("!", "")
+          .toLowerCase()
+          .split(/\s+/),
+      },
+    });
   };
 
   return (
