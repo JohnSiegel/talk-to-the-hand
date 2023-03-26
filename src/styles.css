@@ -166,6 +166,10 @@ body {
     padding-bottom: 10px;
 }
 
+.hide_control_bar {
+  opacity: 0;
+}
+
 .box_title{
     text-align: center;
     font-size: 22px;

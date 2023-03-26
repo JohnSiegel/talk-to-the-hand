@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { Environment } from "@react-three/drei";
 import Overlay from "./Overlay";
 import Model from "./Model";
+import VideoPlayer from "./VideoPlayer";
 
 const LIGHT_COLOR = {
   r: 44/255, g:0/255, b:63/255
@@ -24,7 +25,7 @@ function App() {
   })
   return (
     <>
-      <Canvas
+      {/* <Canvas
         shadows
         onCreated={(state) => state.events.connect(overlay.current)}
         raycaster={{
@@ -52,6 +53,14 @@ function App() {
         scroll={scroll}
         backgroundColor={backgroundColor}
         setBackgroundColor={setBackgroundColor}
+      /> */}
+      <VideoPlayer
+        filenames={[
+          "/movies/yes.mov",
+          "/movies/yes.mov",
+          "/movies/yes.mov",
+          "/movies/yes.mov",
+        ]}
       />
     </>
   );
