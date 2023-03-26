@@ -371,7 +371,7 @@ const Overlay = forwardRef(
               <img
                 className="box_images"
                 alt=""
-                src="LiveSTT_Placehoder.jpg"
+                src="live.png"
               ></img>
             </div>
             <div className="box_title">SignExpress</div>
