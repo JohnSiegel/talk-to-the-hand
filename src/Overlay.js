@@ -1,6 +1,7 @@
 import React, { forwardRef, useEffect, useState } from "react";
 import VideoPlayer from "./VideoPlayer";
 import "./App";
+import { fromMicrophone } from "./SpeechRecognition";
 
 const SCROLL_THRESHOLD_START = 0.25;
 const SCROLL_THRESHOLD_MIDDLE = 0.35;
@@ -58,6 +59,10 @@ const Overlay = forwardRef(
       }
     };
 
+    const sexpbox = useRef();
+    const stsbox = useRef();
+    const vtsbox = useRef();
+
     const handleSubmit = (event) => {
       event.preventDefault();
       // Call the text to ASL function with userInput
@@ -86,8 +91,17 @@ const Overlay = forwardRef(
     useEffect(() => {
       switch (currentFeature) {
         case "tts":
+          stsbox.current.scrollIntoView({ behavior: "smooth", block: "start" });
+          break;
         case "vts":
+          vtsbox.current.scrollIntoView({ behavior: "smooth", block: "start" });
+          break;
         case "sexp":
+          sexpbox.current.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+          break;
       }
     }, [currentFeature, scroll]);
 
@@ -230,9 +244,8 @@ const Overlay = forwardRef(
             <img className="logo" src="cleanlogo2.png" alt="" height=""></img>
           </div>
         </div>
-        
         <div>
-      {/* features */}
+          {/* features */}
           <h1>Features</h1>
         </div>
         <div className="container">
@@ -279,12 +292,14 @@ const Overlay = forwardRef(
                 Math.round(description1.length * animateTextHover1)
               )}
             </div>
-            <button id="tio_button2" onclick="handleButtonClick('tio_button2')"
+            <button
+              id="tio_button2"
+              onclick="handleButtonClick('tio_button2')"
               style={{
                 fontSize: MAX_FONT_SIZE * animateHover1,
                 opacity: animateBoxHover1,
               }}
-             >
+            >
               <div class="container-2">
                 <div class="btn btn-two">
                   <span>Try it out!</span>
@@ -340,7 +355,7 @@ const Overlay = forwardRef(
                 fontSize: MAX_FONT_SIZE * animateHover2,
                 opacity: animateBoxHover2,
               }}
-             >
+            >
               <div class="container-2">
                 <div class="btn btn-two">
                   <span>Try it out!</span>
@@ -368,11 +383,7 @@ const Overlay = forwardRef(
             }}
           >
             <div className="icon_images">
-              <img
-                className="box_images"
-                alt=""
-                src="live.png"
-              ></img>
+              <img className="box_images" alt="" src="live.png"></img>
             </div>
             <div className="box_title">SignExpress</div>
             <div className="discription3" id="subtitle3">
@@ -400,7 +411,7 @@ const Overlay = forwardRef(
                 fontSize: MAX_FONT_SIZE * animateHover3,
                 opacity: animateBoxHover3,
               }}
-             >
+            >
               <div class="container-2">
                 <div class="btn btn-two">
                   <span>Try it out!</span>
@@ -409,90 +420,123 @@ const Overlay = forwardRef(
             </button>
           </div>
         </div>
-        {/* Translate Text to Sign Language */}
-        <div class="container_title">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"id="TTSL_title"> Translate Text to Sign Language</h3>
-          </div>
-        </div>
-      </div>
 
-        <div className="App">
-          <h2 class="feature">Text2Sign</h2>
-          <form class="form" onSubmit={handleSubmit}>
-            <label htmlFor="text-input">
-              <textarea
-                id="text-input"
-                value={userInput}
-                placeholder="Type here. (500 word maximum)"
-                onChange={handleInputChange}
-                rows={10}
-                cols={50}
-              />
-            </label>
-            <br />
-            <button>
-          <div class="container-2">
-            <div class="btn btn-two">
-              <span>Submit</span>
+        {currentFeature == "tts" ? (
+          <div className="tts" ref={stsbox}>
+            <div class="container_title">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3 class="animate-charcter" id="TTSL_title">
+                    {" "}
+                    Translate Text to Sign Language
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div className="App">
+              <h2 class="feature">Text2Sign</h2>
+              <form class="form" onSubmit={handleSubmit}>
+                <label htmlFor="text-input">
+                  <textarea
+                    id="text-input"
+                    value={userInput}
+                    placeholder="Type here. (500 word maximum)"
+                    onChange={handleInputChange}
+                    rows={10}
+                    cols={50}
+                  />
+                </label>
+                <br />
+                <button>
+                  <div class="container-2">
+                    <div class="btn btn-two">
+                      <span>Submit</span>
+                    </div>
+                  </div>
+                </button>
+              </form>
             </div>
           </div>
-        </button>
-          </form>
-        </div>
-  {/* Translate Audio to Sign Language */}
-        {/* <div class="container_">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h3 class="animate-charcter" style={{
-                marginLeft:"280px"
-              }}> Translate Audio to Sign Language</h3>
+        ) : (
+          <></>
+        )}
+        {currentFeature == "vts" ? (
+          <div className="vts" ref={vtsbox}>
+            {" "}
+            <div class="container_">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3
+                    class="animate-charcter"
+                    style={{
+                      marginLeft: "280px",
+                    }}
+                  >
+                    {" "}
+                    Translate Audio to Sign Language
+                  </h3>
+                </div>
+              </div>
+            </div>
+            <div class="container_text">
+              <button class="record_button">
+                <div class="wrap">
+                  <button
+                    class="record_button"
+                    onClick={(event) => {
+                      const res = fromMicrophone();
+                      navigate("/player", {
+                        state: {
+                          words: res.text
+                            .replaceAll(".", "")
+                            .replaceAll("?", "")
+                            .replaceAll("!", "")
+                            .toLowerCase()
+                            .split(/\s+/),
+                        },
+                      });
+                    }}
+                  >
+                    <img src="microphone.png" width="50" height="50" />
+                  </button>
+                </div>
+              </button>
+            </div>
           </div>
-        </div>
-      </div> */}
-
-       {/* <div class="container_text">
-      <button class="record_button">
-        <div class="wrap">
-          <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
-        </div>
-      </button>
-      </div>
-
-      {/* Translate Live to Sign Language */}
-      <div class="container_text">
-        <div class="row">
-          <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> Live Video to Sign Language</h3>
+        ) : (
+          <></>
+        )}
+        {currentFeature == "sexp" ? (
+          <div className="sexpbox" ref={sexpbox}>
+            <div class="container_text">
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  <h3 class="animate-charcter"> Live Video to Sign Language</h3>
+                </div>
+              </div>
+            </div>
+            <VideoPlayer
+              onDone={(event) => {}}
+              filenames={[
+                "/movies/IMG_0826.mov",
+                "/movies/IMG_0518.mov",
+                "/movies/yes.mov",
+              ]}
+            ></VideoPlayer>
+            <div class="container_text">
+              <button class="record_button">
+                <div class="wrap">
+                  <button class="record_button">
+                    <img src="microphone.png" width="50" height="50" />
+                  </button>
+                </div>
+              </button>
+            </div>
           </div>
-        </div>
+        ) : (
+          <></>
+        )}
       </div>
-
-      <VideoPlayer
-        onDone={(event) => {}}
-        filenames={[
-          "/movies/IMG_0826.mov",
-          "/movies/IMG_0518.mov",
-          "/movies/yes.mov",
-        ]}
-      ></VideoPlayer>
-      
-      <div class="container_text">
-      <button class="record_button">
-        <div class="wrap">
-          <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
-        </div>
-      </button>
-      </div>
-
-
-        
-      </div>
-      
-      
-
-      
     );
   }
 );
