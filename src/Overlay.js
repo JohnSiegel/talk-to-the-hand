@@ -102,16 +102,16 @@ const Overlay = forwardRef(
             Math.min(1, animateTextHover1 + ANIMATION_RATE / 30)
           );
           setAnimateBoxHover1(
-            Math.min(1, animateBoxHover1 + ANIMATION_RATE / 2)
+            Math.min(1, animateBoxHover1 + ANIMATION_RATE / 10)
           );
         }, 1);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
-          setAnimateHover1(Math.max(0, animateHover1 - ANIMATION_RATE));
+          setAnimateHover1(Math.max(0, animateHover1 - ANIMATION_RATE / 30));
           setAnimateTextHover1(0);
           setAnimateBoxHover1(
-            Math.max(0, animateBoxHover1 - ANIMATION_RATE / 2)
+            Math.max(0, animateBoxHover1 - ANIMATION_RATE / 10)
           );
         }, 1);
         return () => clearTimeout(timeout);
@@ -133,16 +133,16 @@ const Overlay = forwardRef(
             Math.min(1, animateTextHover2 + ANIMATION_RATE / 30)
           );
           setAnimateBoxHover2(
-            Math.min(1, animateBoxHover2 + ANIMATION_RATE / 2)
+            Math.min(1, animateBoxHover2 + ANIMATION_RATE / 10)
           );
         }, 1);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
-          setAnimateHover2(Math.max(0, animateHover2 - ANIMATION_RATE));
+          setAnimateHover2(Math.max(0, animateHover2 - ANIMATION_RATE / 30));
           setAnimateTextHover2(0);
           setAnimateBoxHover2(
-            Math.max(0, animateBoxHover2 - ANIMATION_RATE / 2)
+            Math.max(0, animateBoxHover2 - ANIMATION_RATE / 10)
           );
         }, 1);
         return () => clearTimeout(timeout);
@@ -165,16 +165,16 @@ const Overlay = forwardRef(
             Math.min(1, animateTextHover3 + ANIMATION_RATE / 30)
           );
           setAnimateBoxHover3(
-            Math.min(1, animateBoxHover3 + ANIMATION_RATE / 2)
+            Math.min(1, animateBoxHover3 + ANIMATION_RATE / 10)
           );
         }, 1);
         return () => clearTimeout(timeout);
       } else {
         const timeout = setTimeout(() => {
-          setAnimateHover3(Math.max(0, animateHover3 - ANIMATION_RATE));
+          setAnimateHover3(Math.max(0, animateHover3 - ANIMATION_RATE / 30));
           setAnimateTextHover3(0);
           setAnimateBoxHover3(
-            Math.max(0, animateBoxHover3 - ANIMATION_RATE / 2)
+            Math.max(0, animateBoxHover3 - ANIMATION_RATE / 10)
           );
         }, 1);
         return () => clearTimeout(timeout);
