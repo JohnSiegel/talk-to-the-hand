@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Player, ControlBar } from "video-react";
 
-const ANIM_DURATION = 200;
+const ANIM_DURATION = 300;
 const ANIM_RATE = 30;
 
 const VideoPlayer = ({ filenames, onDone }) => {
