@@ -1,42 +1,47 @@
-import React, { useState } from 'react';
-import './styles.css'; // Import your CSS file
+import React, { Suspense, useRef, useState } from "react";
+import { Canvas } from "@react-three/fiber";
+import { Environment } from "@react-three/drei";
+import Overlay from "./Overlay";
+import Model from "./Model";
 
-const App = () => {
-  const [userInput, setUserInput] = useState('');
-
-  const handleInputChange = (event) => {
-    const inputText = event.target.value;
-    const words = inputText.split(/\s+/);
-    if (words.length <= 500) {
-      setUserInput(inputText);
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Call the text to ASL function with userInput
-    console.log('User Input:', userInput);
-  };
-
+function App() {
+  const overlay = useRef();
+  const caption = useRef();
+  const scroll = useRef(0);
+  const [backgroundColor, setBackgroundColor] = useState(0);
   return (
-    <div className="App">
-      <h1>Text to ASL</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="text-input">
-          Enter text (up to 500 words):
-          <textarea
-            id="text-input"
-            value={userInput}
-            onChange={handleInputChange}
-            rows={10}
-            cols={50}
-          />
-        </label>
-        <br />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <>
+      <Canvas
+        shadows
+        onCreated={(state) => state.events.connect(overlay.current)}
+        raycaster={{
+          computeOffsets: ({ clientX, clientY }) => ({
+            offsetX: clientX,
+            offsetY: clientY,
+          }),
+        }}
+      >
+        <color
+          attach={"background"}
+          r={backgroundColor}
+          g={backgroundColor}
+          b={backgroundColor}
+        />
+        <ambientLight intensity={1} />
+        <Suspense fallback={null}>
+          <Model scroll={scroll} />
+          <Environment preset="city" />
+        </Suspense>
+      </Canvas>
+      <Overlay
+        ref={overlay}
+        caption={caption}
+        scroll={scroll}
+        backgroundColor={backgroundColor}
+        setBackgroundColor={setBackgroundColor}
+      />
+    </>
   );
-};
+}
 
 export default App;
