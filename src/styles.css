@@ -35,7 +35,7 @@ body {
   position: fixed;
   overflow: hidden;
   overscroll-behavior-y: none;
-  background-color: #101010;
+  background-color: black;
   font-family: 'Inter var', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
@@ -52,6 +52,7 @@ body {
   line-height: 1em;
   font-variant-numeric: tabular-nums;
   -webkit-font-smoothing: auto;
+  text-align: center;
 }
 
 .blob {
@@ -119,18 +120,17 @@ body {
 }
 .logo
 {
-    width:60%;
-    height:50%;
-    padding-left:35%;
+    width:80%;
+    height:80%;
+    padding-left:80px;
     padding-bottom: 35px;
 }
 .gradient
 {
     display:flex;
-    justify-content: center;
-    padding-top:5%;
-    padding-bottom:30%;
-    margin-bottom:20%;
+    padding-bottom:20%;
+    margin-bottom:10%;
+    text-align: center;
 }
 .background
 {
@@ -155,9 +155,10 @@ body {
     flex-wrap: wrap;
     justify-content:space-evenly;
     background-color: transparent;
-    height: 300px;
+    margin-top:100px;
     margin-bottom: 2000px;
-    align-items:flex-start;
+    align-items:center;
+    height: 650px;
 }
 
 .box_images{
@@ -169,11 +170,11 @@ body {
 .item{
     background-color: white;
     border-radius: 10%;
-    min-width: 40px;
-    max-width: 450px;
     display: block;
     position: relative;
     text-align: center;
+    padding:0;
+    transition: padding 500ms;
 }
 
 .icon_images{
@@ -194,7 +195,6 @@ body {
 h1
 {
     text-align: center;
-    padding-bottom:10%;
     font-size:100px;
     font-family:Alfa;
     color:white;
@@ -206,41 +206,55 @@ h1
     display:none;
     list-style-type: none;
     margin:10px, 10px, 10px, 10px;
- 
+    overflow: hidden;
+}
+
+#box1:hover,
+#box2:hover,
+#box3:hover {
+  padding:20px;
 }
 
 #box1:hover > .discription1{
     display:block;
+    padding-left:20px;
+    padding-right:20px;
+    max-height:500px;
     color:black;
 }
 #box2:hover > .discription2{
     display:block;
+    padding-left:20px;
+    padding-right:20px;
+    max-height:500px;
     color:black;
 }
 #box3:hover > .discription3{
     display:block;
+    padding-left:20px;
+    padding-right:20px;
+    max-height:500px;
     color:black;
 }
 
 #box1:hover > .box_title{
     display:none;
+    transition: all 500ms;
     color:black;
 }
 #box2:hover > .box_title{
     display:none;
+    transition: all 500ms;
     color:black;
 }
 #box3:hover > .box_title{
     display:none;
+    transition: all 500ms;
     color:black;
 }
 
-#tio_button:hover{
-  background-color:skyblue;
-}
-#tio_button2:hover{
-  background-color:skyblue;
-}
+#tio_button1:hover,
+#tio_button2:hover,
 #tio_button3:hover{
   background-color:skyblue;
 }
@@ -258,8 +272,9 @@ h1
     height:60px;
     margin:5% 0%;
     margin-left:10%;
-    padding-top:15px;
+    padding-top:5px;
     font-family:Alfa;
+    transition: all 500ms;
 }
 
 #subtitle1,
@@ -268,4 +283,5 @@ h1
   font-weight: bold;
   font-size: 22px;
   font-family: Alfa;
+  transition: all 500ms;
 }
