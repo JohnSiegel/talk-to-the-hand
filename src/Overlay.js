@@ -62,7 +62,7 @@ const Overlay = forwardRef(
     const [animateBoxHover2, setAnimateBoxHover2] = useState(0);
     const [animateBoxHover3, setAnimateBoxHover3] = useState(0);
 
-    const handleButtonClick = (buttonId) => {
+    const handleButtonClick = (buttonId) => {console.log(buttonId)
       /*if (buttonId === "tio_button1"){
         featureSubSection1.current.scrollIntoView({behavior:'smooth'});
       }
@@ -402,13 +402,10 @@ const Overlay = forwardRef(
           </div>
         </div>
         <div className="App">
-      <h2 class="feature">Text2Sign</h2>
+      <h2 class="feature" >Text2Sign</h2>
       <form class="form" onSubmit={handleSubmit}>
         <label htmlFor="text-input">
           <textarea 
-            style={{
-              marginLeft:"120px",
-            }}
             id="text-input"
             value={userInput}
             placeholder="Type here. (500 word maximum)"

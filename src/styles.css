@@ -133,10 +133,10 @@ body {
     flex-wrap: wrap;
     justify-content:space-evenly;
     background-color: transparent;
-    margin-top:100px;
+    margin-top:30px;
     margin-bottom: 1000px;
     align-items:center;
-    height: 650px;
+    height: 620px;
     background-color: transparent;
 }
 
@@ -270,22 +270,29 @@ h1
 }
 
 .App{
-  padding-bottom:400px;
+  margin-bottom:300px;
+  padding-top:40px;
+  padding-bottom:40px;
+  margin-left:550px;
+  margin-right:250px;
+  background-color:lightgrey;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius:20px;
+  border-style:groove;
+  border-width: 5px;
+  border-color: black;
+  opacity: 0.8;
 }
 
 .feature{
-  margin-left:45.5%;
-  color:white;
+  color:black;
   font-family: Alfa;
   padding-bottom:7px;
 }
 
-.form{
-  padding-left:400px;
-}
-
 .submit{
-  margin-left: 21%;
   background-color: rgb(140, 60, 191);;
     border-radius: 12px;
     border-color:rgb(140, 60, 191);;
@@ -300,4 +307,12 @@ h1
 
 .submit:hover{
   background-color:rgb(110,42,145);
+}
+
+#text-input
+{
+  font-size:16px;
+  border-width:2px;
+  border-radius:5px;
+  padding:5px;
 }
