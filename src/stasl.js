@@ -12,11 +12,7 @@ const STASL = ({ currentFeatureState }) => {
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // Call the text to ASL function with userInput
-    console.log("User Input:", userInput);
-  };
+  const handleSubmit = (event) => {};
 
   return (
     <div className="App">

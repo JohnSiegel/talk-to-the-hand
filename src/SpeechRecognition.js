@@ -1,18 +1,23 @@
-import sdk from "microsoft-cognitiveservices-speech-sdk";
+import {
+  AudioConfig,
+  ResultReason,
+  SpeechRecognizer,
+  SpeechConfig,
+} from "microsoft-cognitiveservices-speech-sdk";
 
-const speechConfig = sdk.SpeechConfig.fromSubscription(
-  process.env.SPEECH_KEY,
-  process.env.SPEECH_REGION
+const speechConfig = SpeechConfig.fromSubscription(
+  "a03eecdd15be4799a5a32d2bb5a553f8",
+  "eastus"
 );
 speechConfig.speechRecognitionLanguage = "en-US";
 
-function fromMicrophone() {
-  let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-  let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+export function fromMicrophone() {
+  let audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+  let speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
 
   speechRecognizer.recognizeOnceAsync((result) => {
     speechRecognizer.close();
-    if (result.reason == sdk.ResultReason.RecognizedSpeech) {
+    if (result.reason === ResultReason.RecognizedSpeech) {
       return {
         result: result.reason,
         text: result.text,
@@ -25,9 +30,9 @@ function fromMicrophone() {
   });
 }
 
-function fromLiveMicrophone(onRecognized) {
-  let audioConfig = sdk.AudioConfig.fromDefaultMicrophoneInput();
-  let speechRecognizer = new sdk.SpeechRecognizer(speechConfig, audioConfig);
+export function fromLiveMicrophone(onRecognized) {
+  let audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+  let speechRecognizer = new SpeechRecognizer(speechConfig, audioConfig);
   speechRecognizer.startContinuousRecognitionAsync(() => {
     speechRecognizer.recognized = onRecognized;
   });
