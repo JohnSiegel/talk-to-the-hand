@@ -429,6 +429,30 @@ const Overlay = forwardRef(
             </button>
           </form>
         </div>
+        <div class="container">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Translate Audio to Sign Language</h3>
+          </div>
+        </div>
+      </div>
+      <button>
+        <div class="container-2">
+          <div class="btn btn-two">
+            <span>Click</span>
+          </div>
+        </div>
+      </button>
+      <div class="container">
+        <p>Click the button to start recording!</p>
+      </div>
+      <div class="container">
+      <button class="record_button">
+        <div class="wrap">
+          <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
+        </div>
+      </button>
+      </div>
         <span className="caption" ref={caption}>
           Scroll down
         </span>

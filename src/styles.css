@@ -337,7 +337,7 @@ h1
   justify-content: center;
 }
 
-.button {
+.record_button {
   min-width: 60px;
   min-height: 60px;
   font-family: 'Nunito', sans-serif;
@@ -358,7 +358,7 @@ background: linear-gradient(90deg, rgb(230, 129, 129) 0%, rgb(209, 79, 79) 100%)
   padding: 10px;
   }
 
-button::before {
+.record_button::before {
 content: '';
   border-radius: 1000px;
   min-width: calc(60px + 12px);
@@ -373,32 +373,33 @@ content: '';
   transition: all .3s ease-in-out 0s;
 }
 
-.button:hover, .button:focus {
+.record_button:hover, .record_button:focus {
   color: #313133;
   transform: translateY(-6px);
 }
 
-button:hover::before, button:focus::before {
+.record_button:hover::before, .record_button:focus::before {
   opacity: 1;
+
 }
 
-button::after {
+.record_button::after {
   content: '';
   width: 30px; height: 30px;
-  border-radius: 100%;
+  border-radius: 300%;
   border: 6px solid #ff0000;
   position: absolute;
   z-index: -1;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  animation: ring 1.5s infinite;
 }
 
-button:hover::after, button:focus::after {
+.record_button:hover::after, .record_button:focus::after {
   animation: none;
   display: none;
   position: absolute;
+  /* animation: ring 1.5s infinite; */
 }
 
 @keyframes ring {
@@ -463,4 +464,71 @@ button:hover::after, button:focus::after {
   background-color: #f8f8f8;
   resize: none;
 }
+
+
+.container-2 { background: #4E598C; }
+
+/*
+ BUTTON STYLING
+*/
+
+.btn {
+  position: relative;
+  color: white;
+  width: 256px;
+  height: 64px;
+  line-height: 64px;
+  transition: all 0.3s;
+}
+
+.btn::before, .btn::after {
+  content: '';
+  position: absolute;
+  transition: all 0.3s;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.btn-two::before, .btn-two::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-two:hover::after {
+  animation-name: rotatecw;
+  animation-duration: 2s;
+}
+.btn-two:hover::before {
+  animation-name: rotateccw; 
+  animation-duration: 3s;
+}
+.btn-two:hover::after, .btn-two:hover::before {
+  left: 96px;
+  width: 64px;
+  
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatecw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotateccw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+
 
