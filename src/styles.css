@@ -300,7 +300,7 @@ h1
 .feature{
   color:black;
   font-family: Alfa;
-  padding-bottom:7px;
+  padding-bottom:12px;
 }
 
 .submit{
@@ -421,6 +421,7 @@ content: '';
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+  margin-bottom:450px;
 }
 
 .animate-charcter
@@ -530,5 +531,16 @@ content: '';
     to {transform: rotate(-360deg);}
 }
 
+#TTSL_title
+{
+  padding-left:240px;
+}
 
-
+.container_title
+{
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+  margin-bottom:20px;
+}

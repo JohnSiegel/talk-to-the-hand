@@ -408,10 +408,10 @@ const Overlay = forwardRef(
           </div>
         </div>
         {/* Translate Text to Sign Language */}
-        <div class="container_text">
+        <div class="container_title">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> Translate Text to Sign Language</h3>
+            <h3 class="animate-charcter"id="TTSL_title"> Translate Text to Sign Language</h3>
           </div>
         </div>
       </div>
@@ -440,21 +440,23 @@ const Overlay = forwardRef(
           </form>
         </div>
   {/* Translate Audio to Sign Language */}
-        <div class="container_text">
+        {/* <div class="container_">
         <div class="row">
           <div class="col-md-12 text-center">
-            <h3 class="animate-charcter"> Translate Audio to Sign Language</h3>
+            <h3 class="animate-charcter" style={{
+                marginLeft:"280px"
+              }}> Translate Audio to Sign Language</h3>
           </div>
         </div>
-      </div>
+      </div> */}
 
-      <div class="container_text">
+       {/* <div class="container_text">
       <button class="record_button">
         <div class="wrap">
           <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
         </div>
       </button>
-      </div>
+      </div> */}
         <span className="caption" ref={caption}>
           Scroll down
         </span>
