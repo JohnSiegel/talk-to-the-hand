@@ -230,7 +230,9 @@ const Overlay = forwardRef(
             <img className="logo" src="cleanlogo2.png" alt="" height=""></img>
           </div>
         </div>
+        
         <div>
+      {/* features */}
           <h1>Features</h1>
         </div>
         <div className="container">
@@ -456,11 +458,29 @@ const Overlay = forwardRef(
           <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
         </div>
       </button>
-      </div> */}
-        <span className="caption" ref={caption}>
-          Scroll down
-        </span>
       </div>
+
+      {/* Translate Live to Sign Language */}
+      <div class="container_text">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <h3 class="animate-charcter"> Live Video to Sign Language</h3>
+          </div>
+        </div>
+      </div>
+
+      <div class="container_text">
+      <button class="record_button">
+        <div class="wrap">
+          <button class="record_button"><img src="microphone.png" width="50" height="50"/></button>
+        </div>
+      </button>
+      </div>
+
+
+        
+      </div>
+      
       
 
       

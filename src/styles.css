@@ -396,10 +396,8 @@ content: '';
 }
 
 .record_button:hover::after, .record_button:focus::after {
-
   display: none;
   position: absolute;
-  animation: ring 1.5s infinite;
 }
 
 @keyframes ring {
