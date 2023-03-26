@@ -59,6 +59,7 @@ body {
   line-height: 1.6em;
   font-size: 15px;
   letter-spacing: 1.5px;
+  font-family:Alfa;
 }
 
 .button {
@@ -129,7 +130,7 @@ body {
     justify-content: center;
     padding-top:5%;
     padding-bottom:30%;
-    margin-bottom:30%;
+    margin-bottom:20%;
 }
 .background
 {
@@ -153,9 +154,9 @@ body {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content:space-evenly;
-    background-color: black;
+    background-color: transparent;
     height: 300px;
-    margin-bottom: 200px;
+    margin-bottom: 2000px;
     align-items:flex-start;
 }
 
@@ -169,7 +170,10 @@ body {
     background-color: white;
     border-radius: 10%;
     min-width: 40px;
-    max-width: 600px;
+    max-width: 450px;
+    display: block;
+    position: relative;
+    text-align: center;
 }
 
 .icon_images{
@@ -194,4 +198,74 @@ h1
     font-size:100px;
     font-family:Alfa;
     color:white;
+}
+
+.discription1,
+.discription2,
+.discription3{
+    display:none;
+    list-style-type: none;
+    margin:10px, 10px, 10px, 10px;
+ 
+}
+
+#box1:hover > .discription1{
+    display:block;
+    color:black;
+}
+#box2:hover > .discription2{
+    display:block;
+    color:black;
+}
+#box3:hover > .discription3{
+    display:block;
+    color:black;
+}
+
+#box1:hover > .box_title{
+    display:none;
+    color:black;
+}
+#box2:hover > .box_title{
+    display:none;
+    color:black;
+}
+#box3:hover > .box_title{
+    display:none;
+    color:black;
+}
+
+#tio_button:hover{
+  background-color:skyblue;
+}
+#tio_button2:hover{
+  background-color:skyblue;
+}
+#tio_button3:hover{
+  background-color:skyblue;
+}
+
+#tio_button1,
+#tio_button2,
+#tio_button3 {
+    background-color: lightblue;
+    border-radius: 12px;
+    border-color:lightblue;
+    border-width:5px;
+    border-style:inset;
+    text-align:center;
+    width:80%;
+    height:60px;
+    margin:5% 0%;
+    margin-left:10%;
+    padding-top:15px;
+    font-family:Alfa;
+}
+
+#subtitle1,
+#subtitle2,
+#subtitle3 {
+  font-weight: bold;
+  font-size: 22px;
+  font-family: Alfa;
 }
