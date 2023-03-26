@@ -48,7 +48,7 @@ const VideoPlayer = ({ filenames, onDone }) => {
     if (player.current != null) {
       player.current.subscribeToStateChange((state) => {
         if (state.ended) {
-          if (currentIndex <= filenames.length - 1) {
+          if (currentIndex + 1 < filenames.length) {
             setCurrentIndex(currentIndex + 1);
           } else {
             onDone();
@@ -80,11 +80,17 @@ const VideoPlayer = ({ filenames, onDone }) => {
         }}
       >
         <Player ref={player} autoPlay muted>
-          <source src={filenames[currentIndex]} />
+          {filenames.length > currentIndex ? (
+            <source src={filenames[currentIndex]} />
+          ) : (
+            <> </>
+          )}
           <ControlBar disableCompletely />
         </Player>
         <div className="box_title" style={{ color: "black" }}>
-          {filenames[currentIndex].split("/")[2].split(".")[0]}
+          {filenames.length > currentIndex
+            ? filenames[currentIndex].split("/")[2].split(".")[0]
+            : ""}
         </div>
       </div>
     </div>
